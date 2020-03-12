@@ -1,4 +1,16 @@
 <?php
+//Generar controlador
+//php artisan make:controller SalesController
+//Las migraciones son como el control de versión para tu base de datos, permiten que tu equipo modifique y comparta fácilmente el esquema de base de datos de la aplicación.
+//php artisan make:migration create_users_table
+//Revertir migraciones
+//php artisan migrate:rollback
+//El comando migrate:reset revertirá todas las migraciones de tu aplicación:
+//php artisan migrate:reset
+//Error laravel https://laravel-news.com/laravel-5-4-key-too-long-error
+//El comando migrate:fresh eliminará todas las tablas de la base de datos y después ejecutará el comando migrate
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -11,16 +23,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'SalesController@index');
 
-Route::get('user/{name?}', function ($name = null) {
-    return 'Bienvenido user: ' . $name;
-});
+Route::get('user/{id?}', 'SalesController@showClient')->where('id', '[0-9]+');
+// En este ejemplo que se agrega se indica en el condicional que solo se permiten numeros.
+//el ? me permite trabajar con argument null
 
 Route::get('producto/{id}', 'ProductoController@show');
 
+Route::view('example1', 'example1', ['numero' => 1200]);
+Route::view('nosotros', 'nosotros');
+
+/*
 Route::get('/', function () {
     return view('users', ['name' => 'jose gregorio']); // se le pasa el nombre del archivo de nuestra vista
 });
+*/
