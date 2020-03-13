@@ -9,8 +9,10 @@
 //php artisan migrate:reset
 //Error laravel https://laravel-news.com/laravel-5-4-key-too-long-error
 //El comando migrate:fresh eliminará todas las tablas de la base de datos y después ejecutará el comando migrate
-
-
+//Los modelos permiten que consultes los datos en tus tablas, así como también insertar nuevos registros dentro de la tabla.
+//php artisan make:model Flight
+//generar una migración de base de datos cuando generes el modelo
+//php artisan make:model Flight -m
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,8 @@ Route::get('producto/{id}', 'ProductoController@show');
 
 Route::view('example1', 'example1', ['numero' => 1200]);
 Route::view('nosotros', 'nosotros');
+
+Route::get('clients/lists', 'ClientsController@index');
 
 /*
 Route::get('/', function () {

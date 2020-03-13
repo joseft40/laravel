@@ -22,6 +22,7 @@ class Clients extends Migration
             $table->string('location');
             $table->string('rif');
             $table->string('type_client');
+            $table->boolean('status');
             $table->timestamps();
         });
     }
