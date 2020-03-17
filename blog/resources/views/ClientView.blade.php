@@ -123,61 +123,39 @@
 
             <div class="content">
               <div class="col-md-12 mx-auto">
-                <h2 class="text-left">Registro de Clientes</h2>
-                <form method="POST" action="{{ route('clients.create') }}">
-                  @csrf
-
-                  @error('name')
-                    <div class="alert alert-danger">El nombre es obligatorio</div>
-                  @enderror
-
-                  <input type="text" name="name" placeholder="Name" class="form-control mb-2">
-                  <input type="text" name="last_name" placeholder="Last name" class="form-control mb-2"/>
-                  <input type="text" name="email" placeholder="Email" class="form-control mb-2"/>
-                  <input type="text" name="phone" placeholder="Phone" class="form-control mb-2"/>
-                  <input type="text" name="location" placeholder="Location" class="form-control mb-2"/>
-                  <input type="text" name="type_client" placeholder="Type of Clients" class="form-control mb-2"/>
-                  <input type="text" name="status" placeholder="Status" class="form-control mb-2"/>
-                  <input type="text" name="rif" placeholder="Rif" class="form-control mb-2"/>
-                  <button class="btn btn-primary btn-block" type="submit">Agregar</button>
-                </form>
-              </div>
-              <div class="col-md-12 mx-auto">
-                <h2 class="text-left">Lista de Clientes</h2>
+                <h2 class="text-left">Client </h2>
                 <table class="table">
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nombres</th>
-                      <th scope="col">Apellidos</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
                       <th scope="col">Email</th>
                       <th scope="col">Phone</th>
                       <th scope="col">Status</th>
-                      <th scope="col">Type of Clients</th>
+                      <th scope="col">Type of Client</th>
                       <th scope="col">Location</th>
                       <th scope="col">Rif</th>
                       <th scope="col">Operación</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($clients as $client) 
-                      <tr>
-                        <th scope="row">{{ $client->id}}</th>
-                        <td>{{ $client->name }}</td>
-                        <td>{{ $client->last_name }}</td>
-                        <td>{{ $client->email }}</td>
-                        <td>{{ $client->phone }}</td>
-                        <td>{{ $client->type_client }}</td>
-                        <td>{{ $client->status }}</td>
-                        <td>{{ $client->location }}</td>
-                        <td>{{ $client->rif }}</td>
-                        <td>
-                         <a href="{{ route('clients.view', $client) }}" class="btn btn-primary">Consultar</a>
-                        </td>
-                      </tr>
-                    @endforeach()
-                    </tbody>
-                  </table>
+                    <tr>
+                      <th scope="row">{{ $client->id}}</th>
+                      <td>{{ $client->name }}</td>
+                      <td>{{ $client->last_name }}</td>
+                      <td>{{ $client->email }}</td>
+                      <td>{{ $client->phone }}</td>
+                      <td>{{ $client->type_client }}</td>
+                      <td>{{ $client->status }}</td>
+                      <td>{{ $client->location }}</td>
+                      <td>{{ $client->rif }}</td>
+                      <td>
+                       <a href="{{ route('clients.edit', $client) }}" class="btn btn-primary">Editar</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
 

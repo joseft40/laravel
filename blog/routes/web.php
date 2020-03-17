@@ -38,6 +38,11 @@ Route::view('nosotros', 'nosotros');
 
 Route::get('clients/lists', 'ClientsController@index');
 
+Route::post('/', 'ClientsController@create')->name('clients.create');
+
+Route::get('client/{id}', 'ClientsController@view')->name('clients.view');
+Route::get('client/{id}/edit', 'ClientsController@edit')->name('clients.edit');
+
 /*
 Route::get('/', function () {
     return view('users', ['name' => 'jose gregorio']); // se le pasa el nombre del archivo de nuestra vista
